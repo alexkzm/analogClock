@@ -35,38 +35,39 @@
   </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.js"></script>
-<script type="text/javascript">function Clock_dg(prop) {
-    var angle = 360/60,
-        date = new Date();
-        var h = date.getHours();
+<script type="text/javascript">
+function Clock_dg(prop) {
+    let angle = 360/60,
+        date = new Date()
+        let h = date.getHours()
         if(h > 12) {
-            h = h - 12;
+            h = h - 12
         }
 
-        hour = h;
-        minute = date.getMinutes(),
-        second = date.getSeconds(),
-        hourAngle = (360/12) * hour + (360/(12*60)) * minute;
+        hour = h
+        minute = date.getMinutes()
+        second = date.getSeconds()
+        hourAngle = (360/12) * hour + (360/(12*60)) * minute
 
-        $('#minute')[0].style[prop] = 'rotate('+angle * minute+'deg)';
-        $('#second')[0].style[prop] = 'rotate('+angle * second+'deg)';
-        $('#hour')[0].style[prop] = 'rotate('+hourAngle+'deg)';
+        $('#minute')[0].style[prop] = 'rotate('+angle * minute+'deg)'
+        $('#second')[0].style[prop] = 'rotate('+angle * second+'deg)'
+        $('#hour')[0].style[prop] = 'rotate('+hourAngle+'deg)'
 }
-$(function(){
-    var props = 'transform'.split(' '),
+$(() => {
+    let props = 'transform'.split(' '),
         prop,
-        el = document.createElement('div');
+        el = document.createElement('div')
 
-    for(var i = 0, l = props.length; i < l; i++) {
+    for(let i = 0, l = props.length; i < l; i++) {
         if(typeof el.style[props[i]] !== "undefined") {
-            prop = props[i];
-            break;
+            prop = props[i]
+            break
         }
     }
-    setInterval(function(){
+    setInterval(() => {
         Clock_dg(prop)
     },100);
-});
+})
 </script>
 </body>
 </html>
